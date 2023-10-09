@@ -1,27 +1,41 @@
 <%- include("partials/header.ejs") %>
 
     <div class="title">
-        <h1 class="title-h1" id="date">Date</h1>
+        <h1 class="title-h1" id="date"><%= listTitle %></h1>
     </div>
 
     <div class="task-container">
-        <% if (locals.task) { %>
-            <p id="taskCount">Number of tasks left: <%= task.length %>/<%= task.length %></p>
-            <% for( let i=0; i < task.length; i++ ) { %>
-                <div class="task">
-                    <input type="checkbox" class="checkbox" value="<%= task[i] %>">
-                    <p><%= task[i] %></p>
-                </div>
+        <div class="list-header">
+            <% if (tasks) { %>
+                <% if(tasks.length===0){ %>
+                    <p id="taskCount">Your Todo List is empty!</p>
+            <% } else{ %>
+                <p id="taskCount">Number of tasks left: <%= tasks.length %></p>
             <% } %>
+
+            <form action="/deleteList" method="POST">
+                <button class="delete-btn" name="list" value="<%= listTitle %>">×</button>
+            </form>
+            
+        </div>
+            
+            <% tasks.forEach(task => { %>
+                <form action="/delete" method="post">
+                    <div class="task">
+                        <input type="checkbox" name="checkbox" class="checkbox" value="<%= task._id %>" onChange="this.form.submit()">
+                        <p><%= task.name %></p>
+                    </div>
+                <input type="hidden" name="listName" value="<%= listTitle %>"></input>
+                </form>
+            <% }); %>
 
         <% } else { %>
             <p>Your todo list is empty!</p>
             <% } %>
 
         <form class="item" action="/addTask" method="POST">
-            <input type="hidden" name="listType" value="today">
-            <input type="text" name="task" placeholder="New task" autocomplete="off" required pattern="\S(.*\S)?" title="Remove blank spaces before and after the text!👀">
-            <button type="submit">+</button>
+            <input class="list-input" type="text" name="task" placeholder="New task" autocomplete="off" required pattern="\S(.*\S)?" title="Remove blank spaces before and after the text!👀">
+            <button class="list-btn" type="submit" name="list" value="<%= listTitle %>">+</button>
         </form>
     </div>
 

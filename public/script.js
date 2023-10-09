@@ -9,31 +9,19 @@ document.querySelectorAll(".nav-link").forEach((link) => {
     }
 });
 
-let day=date.getDate();
-let month=months[date.getMonth()];
-let year=date.getFullYear();
 
-$("#date").text(day + " " + month + " " + year);
+if($(".title-h1").html()==="Today"){
+    let day=date.getDate();
+    let month=months[date.getMonth()];
+    let year=date.getFullYear();
+    $(".title-h1").text("Today : " + day + " " + month + " " + year);   
+}
 
-var checkBoxes=$("input[type='checkbox']");
-var taskCount=$("#taskCount");
-const totalTasks=checkBoxes.length;
-var count=totalTasks;
+if(window.location.pathname==="/today"){
+    $(".delete-btn").css("background-color", "#a683e3")
+    $(".delete-btn").text("🌟");
 
-for(var i=0;i<count;i++){
-    checkBoxes[i].addEventListener('change',function(){
-        if(this.checked){
-            count--;
-        }
-        else{
-            count++;
-        }
-
-        if(count===0){
-            taskCount.text("Hooray! You completed all of your tasks!");
-        }
-        else{
-            taskCount.text("Number of tasks left: " + count + "/" + totalTasks);
-        }
+    $(".delete-btn").click(function (event) {
+        event.preventDefault(); // Prevent the default behavior of the button
     });
 }

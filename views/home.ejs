@@ -1,5 +1,14 @@
 <%- include("partials/header.ejs") %>
 
+    <div class="newList-container">
+        <p>Add new Todo List</p>
+        <form class="list-form" action="/addList" method="POST">
+            <input class="listName" type="text" name="list" placeholder="List Name" autocomplete="off" required pattern="\S(.*\S)?" title="Remove blank spaces before and after the text!👀">
+            <input class="listDesc" type="text" name="desc" placeholder="Add a description" autocomplete="off" required pattern="\S(.*\S)?" title="Remove blank spaces before and after the text!👀">
+            <button class="newList-btn" type="submit">+</button>
+        </form>
+    </div>
+
     <div class="card-container">
         <div class="row">
             <div class="col-md-4">
@@ -11,14 +20,27 @@
                 </a>
             </div>
             
-            <div class="col-md-4">
+            <!--<div class="col-md-4">
                 <a href="work" class="link" style="text-decoration: none; color: inherit;">
                     <div class="card card-2">
                         <h3>Work Todo List!</h3>
                         <p>Save your tasks related to study, sports, art, travel!</p>
                     </div>
                 </a>
-            </div>
+            </div> -->
+
+            <% let i=1 %>
+            <% AllLists.forEach(list => { %>
+                <% i++; if(i==4) i=1; %>
+                <div class="col-md-4">
+                    <a href="<%= list.name %>" class="link" style="text-decoration: none; color: inherit;">
+                        <div class="card card-<%= i %>">
+                            <h3><%= list.name %> Todo List!</h3>
+                            <p><%= list.desc %></p>
+                        </div>
+                    </a>
+                </div>
+            <% }) %>
         </div>
     </div>
 

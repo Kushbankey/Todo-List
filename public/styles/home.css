@@ -31,12 +31,17 @@ nav img{
 }
 
 .card{
+    margin: 10px;
     border-radius: 4px;
     background: #fff;
     box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
     transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
     padding: 14px 80px 18px 36px;
     cursor: pointer;
+
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 80px;
 }
 
 .card:hover{
@@ -56,17 +61,60 @@ nav img{
 }
 
 .card-1{
-    background-image: url(https://ionicframework.com/img/getting-started/ionic-native-card.png);
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: 80px;
+    background-image: url(../images/theming-card-1.png);
 }
 
 .card-2{
-    background-image: url(https://ionicframework.com/img/getting-started/components-card.png);
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: 80px;
+    background-image: url(../images/theming-card-2.png);
+}
+
+.card-3{
+    background-image: url(../images/theming-card-3.png);
+}
+
+.newList-container > p{
+    font-size: 1.75rem;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: beige;
+    border: 2px solid #000;
+}
+
+.newList-container{
+    margin: 2rem 30%;
+    border-radius: 10px;
+    background-color: #fff;    
+    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+form .list-form{
+    text-align: center;
+    margin-left: 20px;
+}
+
+.list-form{
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f1f1f1;
+    flex-wrap: wrap;
+}
+
+.listName{
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f1f1f1;
+    margin: 10px 0;
+}
+
+.listDesc{
+    min-height: 60px;
+    margin: 10px 0;
+    font-size: 1rem !important;
+    font-weight: 100 !important;
 }
 
 @media(max-width: 990px){
@@ -86,7 +134,32 @@ nav img{
         width: 1em;
         height: 1em;
     }
-} 
+}
+
+@media screen and (max-width: 800px) {
+    .newList-container{
+        margin: 2rem 10%;
+    }
+
+    .newList-container > p{
+        font-size: 1.5rem;
+    }
+
+    .listName{
+        width: 85% !important;
+    }
+    
+    .listDesc{
+        width: 85% !important;
+    }
+
+    .newList-btn{
+        font-size: 1.5rem;
+        min-height: 40px;
+        height: 40px;
+        width: 40px;
+    }
+}
 
 footer{
     margin-top: 1em;
