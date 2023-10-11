@@ -1,7 +1,7 @@
 <%- include("partials/header.ejs") %>
 
     <div class="newList-container">
-        <p>Add new Todo List</p>
+        <p id="showForm">Add new Todo List</p>
         <form class="list-form" action="/addList" method="POST">
             <input class="listName" type="text" name="list" placeholder="List Name" autocomplete="off" required pattern="\S(.*\S)?" title="Remove blank spaces before and after the text!👀">
             <input class="listDesc" type="text" name="desc" placeholder="Add a description" autocomplete="off" required pattern="\S(.*\S)?" title="Remove blank spaces before and after the text!👀">

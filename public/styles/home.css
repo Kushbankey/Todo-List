@@ -80,6 +80,7 @@ nav img{
     justify-content: center;
     background-color: beige;
     border: 2px solid #000;
+    cursor: pointer;
 }
 
 .newList-container{
@@ -100,6 +101,21 @@ form .list-form{
     align-items: center;
     border-bottom: 1px solid #f1f1f1;
     flex-wrap: wrap;
+
+    display: none;
+}
+
+.form-visible {
+    display: block;
+    animation: slide-down .75s ease;
+}
+@keyframes slide-down {
+    from {
+        transform: translateY(-25%);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
 
 .listName{

@@ -11,7 +11,6 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
 
 //connect mongoDB with mongoose
-//mongoose.connect("mongodb+srv://admin-kush:test123@cluster0.l4f09xm.mongodb.net/todolistDB?retryWrites=true&w=majority");
 import {} from 'dotenv/config';
 
 import { connectDB } from './DB/mongo.js';

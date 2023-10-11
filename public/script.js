@@ -25,3 +25,8 @@ if(window.location.pathname==="/today"){
         event.preventDefault(); // Prevent the default behavior of the button
     });
 }
+
+//toggle add new list form
+$("#showForm").on('click',() => {
+    $(".list-form").toggleClass('form-visible');
+});
